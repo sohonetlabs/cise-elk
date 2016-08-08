@@ -20,14 +20,25 @@ services:
       - logstash
   logstash:
     build: ./logstash
-    image: logstash:2.3
     ports:
       - "9991:9991"
       - "9991:9991/udp"
+      - "9997:9997"
     volumes:
-      - $PWD/sources/syslog:/etc/logstash/conf.d/syslog
+      - $PWD/sources:/etc/logstash/conf.d/
       - $PWD/sources/syslog/patterns:/etc/logstash/patterns
     command: -f /etc/logstash/conf.d/*/*.conf
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  pmacct:
+    build: ./pmacct
+    ports:
+      - "23501:23501"
+    depends_on:
+      - rabbitmq
 
 volumes:
   elasticsearch-data:
