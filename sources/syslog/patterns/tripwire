@@ -1,0 +1,1 @@
+TRIPWIRE %{DATA:tripwire_status}: %{UNIXPATH:tripwire_database}( TWReport %{DATA:tripwire_log_filename} ([0-9]+) V:%{INT:tripwire_violations} S:%{INT:tripwire_severity} A:%{INT:tripwire_added} R:%{INT:tripwire_removed} C:%{INT:tripwire_created})?

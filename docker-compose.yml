@@ -19,13 +19,15 @@ services:
       - elasticsearch
       - logstash
   logstash:
+    build: ./logstash
     image: logstash:2.3
     ports:
-      - "5000:5000/tcp"
-      - "5000:5000/udp"
+      - "9991:9991"
+      - "9991:9991/udp"
     volumes:
-      - $PWD/config/logstash:/opt/logstash/conf.d
-    command: -f /opt/logstash/conf.d/logstash.conf
+      - $PWD/sources/syslog:/etc/logstash/conf.d/syslog
+      - $PWD/sources/syslog/patterns:/etc/logstash/patterns
+    command: -f /etc/logstash/conf.d/*/*.conf
 
 volumes:
   elasticsearch-data:

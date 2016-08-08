@@ -1,0 +1,5 @@
+FOUNDRY_PORT_STATE_CHANGE (?:%{SPACE})Interface %{NOTSPACE:if_type} %{NOTSPACE:if}, state %{NOTSPACE:if_state}
+XIRRUS_PORT_STATE_CHANGE .*Interface %{NOTSPACE:if_type} %{NOTSPACE:if} state changed to %{NOTSPACE:if_state}
+ARISTA_PORT_STATE_CHANGE .*Line protocol on Interface %{NOTSPACE:if}, changed state to %{NOTSPACE:if_state}
+DELL_PORT_STATE_CHANGE_1 %LINK-I-%{NOTSPACE:if_state}: *%{NOTSPACE:if}
+DELL_PORT_STATE_CHANGE_2 LINK - %{NOTSPACE:if_state} - Hostname: <%{SYSLOGHOST:syslog_hostname}>, %{NOTSPACE:if}

@@ -1,0 +1,2 @@
+SNMPTT_TIMESTAMP %{DAY}?(%{SPACE})%{MONTH}?(%{SPACE})%{MONTHDAY}?(%{SPACE})%{HOUR}:?%{MINUTE}(?::?%{SECOND})??(%{SPACE})%{YEAR}
+SNMPTT_OID (?:[a-zA-Z0-9-]+\.)+[A-Za-z0-9$]+

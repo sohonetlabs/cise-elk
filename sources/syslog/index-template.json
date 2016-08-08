@@ -1,0 +1,97 @@
+{
+  "order": 0,
+  "template": "logstash-*",
+  "settings": {
+    "index": {
+      "refresh_interval": "5s"
+    }
+  },
+  "mappings": {
+    "_default_": {
+      "dynamic_templates": [
+        {
+          "ip_fields": {
+            "mapping": {
+              "index": "analyzed",
+              "omit_norms": true,
+              "type": "ip",
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "ignore_above": 256,
+                  "doc_values": true,
+                  "type": "string"
+                }
+              }
+            },
+            "match_mapping_type": "ip",
+            "match": "*"
+          }
+        },
+        {
+          "string_fields": {
+            "mapping": {
+              "index": "analyzed",
+              "omit_norms": true,
+              "type": "string",
+              "fields": {
+                "raw": {
+                  "index": "not_analyzed",
+                  "ignore_above": 256,
+                  "doc_values": true,
+                  "type": "string"
+                }
+              }
+            },
+            "match_mapping_type": "string",
+            "match": "*"
+          }
+        }
+      ],
+      "properties": {
+        "syslog_ip": {
+          "type": "ip"
+        },
+        "@timestamp": {
+          "doc_values": true,
+          "type": "date"
+        },
+        "geoip": {
+          "dynamic": true,
+          "properties": {
+            "location": {
+              "doc_values": true,
+              "type": "geo_point"
+            },
+            "longitude": {
+              "doc_values": true,
+              "type": "float"
+            },
+            "latitude": {
+              "doc_values": true,
+              "type": "float"
+            },
+            "ip": {
+              "doc_values": true,
+              "type": "ip"
+            }
+          },
+          "type": "object"
+        },
+        "src_ipv4": {
+          "type": "ip"
+        },
+        "@version": {
+          "index": "not_analyzed",
+          "doc_values": true,
+          "type": "string"
+        }
+      },
+      "_all": {
+        "enabled": true,
+        "omit_norms": true
+      }
+    }
+  },
+  "aliases": {}
+}

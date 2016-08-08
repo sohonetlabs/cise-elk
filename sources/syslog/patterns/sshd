@@ -1,0 +1,7 @@
+SSH_FAILED_PASSWORD Failed password for %{USERNAME:username} from (?:%{IPV6:src_ipv6}|%{IPV4:src_ipv4}) port %{BASE10NUM:port} ssh2
+
+SSH_INVALID_USER Failed password for invalid user %{USERNAME:username} from (?:%{IPV6:src_ipv6}|%{IPV4:src_ipv4}) port %{BASE10NUM:src_port} ssh2
+
+SSH_ACCEPTED_PASSWORD Accepted password for %{USERNAME:username} from (?:%{IPV6:src_ipv6}|%{IPV4:src_ipv4}) port %{BASE10NUM:port} ssh2
+
+SSH_ACCEPTED_PUBLICKEY Accepted publickey for %{USERNAME:username} from (?:%{IPV6:src_ipv6}|%{IPV4:src_ipv4}) port %{BASE10NUM:port} ssh2
