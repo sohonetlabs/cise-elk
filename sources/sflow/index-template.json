@@ -1,0 +1,26 @@
+{
+  "order": 0,
+  "template": "logstash-pmacct-*",
+  "mappings": {
+    "pmacct": {
+      "properties": {
+        "ip_dst_geoip_location": {
+          "type": "geo_point"
+        },
+        "ip_dst": {
+          "type": "ip"
+        },
+        "ip_src_geoip_location": {
+          "type": "geo_point"
+        },
+        "ip_src": {
+          "type": "ip"
+        },
+        "peer_ip_src": {
+          "type": "ip"
+        }
+      }
+    }
+  },
+  "aliases": {}
+}

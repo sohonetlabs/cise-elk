@@ -25,7 +25,7 @@ services:
       - "9991:9991/udp"
       - "9997:9997"
     volumes:
-      - $PWD/sources:/etc/logstash/conf.d/
+      - $PWD/sources:/etc/logstash/conf.d
       - $PWD/sources/syslog/patterns:/etc/logstash/patterns
     command: -f /etc/logstash/conf.d/*/*.conf
   rabbitmq:
@@ -36,9 +36,14 @@ services:
   pmacct:
     build: ./pmacct
     ports:
-      - "23501:23501"
+      - "23501:23501/udp"
     depends_on:
       - rabbitmq
+  redis:
+    image: redis:3.2
+    volumes:
+      - redis-data:/data
 
 volumes:
   elasticsearch-data:
+  redis-data:
