@@ -4,7 +4,7 @@
 
 This repository contains all the logstash and pmacctd configs, elasticsearch index templates, and kibana dashboards created for the CISE project. It represents an entire configured ELK stack which can be used to record and report on security relevant events for your infrastructure.
 
-Also included are configurations for docker and docker-compose, to allow an entire running stack to be bought up quickly for testing. 
+Also included are configurations for docker and docker-compose, to allow an entire running stack to be bought up quickly for testing.
 
 It is not intended that you should run an ELK cluster with the settings from this docker-compose environment - in a production setting you should configure a cluster for your own security, availability and performance requirements.
 
@@ -12,7 +12,7 @@ However, the logstash and pmacctd configurations are relevant for all installati
 
 ## Project Structure
 
-The `sources` directory contains subdirectories for the data sources we collect: `syslog`, `dns` and `sflow`. Each source includes logstash configs named `index.conf`, `filter.conf` and `output.conf` and optionally a `patterns` directory containing logstash grok patterns. 
+The `sources` directory contains subdirectories for the data sources we collect: `syslog`, `dns` and `sflow`. Each source includes logstash configs named `index.conf`, `filter.conf` and `output.conf` and optionally a `patterns` directory containing logstash grok patterns.
 
 Also included for each source is `index-template.json`, an index template for elasticsearch that contains the type mappings for the source, and `kibana-dashboards.json` with all the kibana searches, visualisations and dashboards for the source.
 
@@ -24,9 +24,9 @@ The `elasticsearch`, `logstash` and `pmacct` directories contain `Dockerfile`s a
 
 Before you can start up the stack, you need to [install docker](https://docs.docker.com/engine/installation/) and [install docker-compose](https://docs.docker.com/compose/install/)
 
-Then bring up CISE-ELK by running:
+Clone this repository, then bring up CISE-ELK by running from the root directory of project:
 
-	docker-compose up -d && docker-compose logs -f
+    docker-compose up -d && docker-compose logs -f
 
 This will download and build all the required docker containers, then start them in the correct order. Afterwards you'll have the following services running:
 
@@ -72,7 +72,7 @@ Once the CISE-ELK stack has started, the following management tools are availabl
 
 Tool|URL|Notes
 ----|---|-----
-Elasticsearch kopf admin | http://localhost:9200/_plugin/kopf/#!/cluster | 
+Elasticsearch kopf admin | http://localhost:9200/_plugin/kopf/#!/cluster |
 RabbitMQ web admin | http://localhost:15672/ | user: guest, password: guest
 Kibana | http://localhost:5601
 
