@@ -28,6 +28,9 @@ services:
       - $PWD/sources:/etc/logstash/conf.d
       - $PWD/sources/syslog/patterns:/etc/logstash/patterns
     command: -f /etc/logstash/conf.d/*/*.conf
+    depends_on:
+      - rabbitmq
+      - pmacct
   rabbitmq:
     image: rabbitmq:3-management
     ports:

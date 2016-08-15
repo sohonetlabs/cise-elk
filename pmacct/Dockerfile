@@ -3,7 +3,7 @@ MAINTAINER Johan van den Dorpe <johan.vandendorpe@sohonet.com>
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y sudo wget build-essential libjansson-dev libnuma-dev librdkafka-dev libpcap-dev librabbitmq-dev
+  && apt-get install -y sudo wget build-essential libjansson-dev libnuma-dev librdkafka-dev libpcap-dev librabbitmq-dev curl
 
 RUN wget http://www.pmacct.net/pmacct-1.5.3.tar.gz \
   && tar xvzf pmacct-1.5.3.tar.gz \
@@ -13,5 +13,6 @@ RUN wget http://www.pmacct.net/pmacct-1.5.3.tar.gz \
   && make install
 
 COPY sfacctd.conf /opt/pmacct/
+COPY sflow_agent.conf /opt/pmacct/
 COPY start.sh /
 CMD ["/start.sh"]
