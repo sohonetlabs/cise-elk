@@ -38,10 +38,26 @@ Once your first data has been sent to logstash, it is then possible to create yo
 
 Navigate to `https://$(docker-machine ip elk):5600`.
 
-The login is `admin` and the password is `Kibana05` (see the comments at the top of the file `/conf-files/proxy-conf/kibana-nginx.conf` to change those credentials).
-
 Click on the `Create` button to create your first index.
 
 Click on the Discover tab, you should now get access to your logs:
 
-![Kibana](./kibana.png)
+List of indexes to create:
+
+syslog: logstash-*
+sflow: pmacct-*
+dns: packetbeat-*
+
+## Generate sample data
+
+### sflow
+
+    docker-compose exec pmacct /opt/pmacct/sbin/pmacctd -f /opt/pmacct/sflow_agent.conf
+
+## Management Interfaces
+
+Elasticsearch kopf admin tool: http://localhost:9200/_plugin/kopf/#!/cluster
+RabbitMQ web admin: http://localhost:15672/ (user: guest, password: guest)
+Kibana: http://localhost:5601
+
+
