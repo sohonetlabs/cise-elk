@@ -1,0 +1,8 @@
+interfaces:
+  device: eth0
+protocols:
+  dns:
+    ports: [53]
+output:
+  logstash:
+    hosts: ["IPADDRESS:PORT"]
