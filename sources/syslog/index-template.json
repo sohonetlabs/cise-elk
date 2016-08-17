@@ -81,6 +81,12 @@
         "src_ipv4": {
           "type": "ip"
         },
+        "src_ip": {
+          "type": "ip"
+        },
+        "dst_ip": {
+          "type": "ip"
+        },
         "@version": {
           "index": "not_analyzed",
           "doc_values": true,
