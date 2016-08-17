@@ -1,0 +1,165 @@
+[
+  {
+    "_id": "Syslog-IDP-Events",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Syslog - IDP Events",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"syslog-IDP-all-events\",\"panelIndex\":1,\"row\":1,\"size_x\":9,\"size_y\":3,\"type\":\"visualization\"},{\"col\":10,\"id\":\"syslog-events-count\",\"panelIndex\":2,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"syslog-IDP-threat-name\",\"panelIndex\":7,\"row\":4,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"syslog-IDP-threat-severity\",\"panelIndex\":8,\"row\":4,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"syslog-IDP-policy-action\",\"panelIndex\":10,\"row\":8,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"syslog-IDP-dst-IP\",\"panelIndex\":11,\"row\":8,\"size_x\":8,\"size_y\":3,\"type\":\"visualization\"},{\"id\":\"syslog-IDP-attack-type\",\"type\":\"visualization\",\"panelIndex\":12,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":11},{\"id\":\"syslog-IDP-application\",\"type\":\"visualization\",\"panelIndex\":13,\"size_x\":8,\"size_y\":4,\"col\":1,\"row\":11},{\"id\":\"syslog-IDP-events\",\"type\":\"search\",\"panelIndex\":14,\"size_x\":12,\"size_y\":19,\"col\":1,\"row\":15,\"columns\":[\"syslog_hostname\",\"attack_type\",\"threat_name\",\"application\",\"threat_severity\",\"policy_action\",\"src_ip\",\"dst_ip\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"tags:junos_idp\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-events",
+    "_type": "search",
+    "_source": {
+      "title": "syslog - IDP events",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "syslog_hostname",
+        "attack_type",
+        "threat_name",
+        "application",
+        "threat_severity",
+        "policy_action",
+        "src_ip",
+        "dst_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"tags:junos_idp\"}}}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-all-events",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP all events",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-threat-severity",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP threat severity",
+      "visState": "{\"title\":\"syslog - IDP threat severity\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"threat_severity\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#E24D42\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-policy-action",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP policy action",
+      "visState": "{\"title\":\"syslog - IDP policy action\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"policy_action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#65C5DB\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-attack-type",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP attack type",
+      "visState": "{\"title\":\"syslog - IDP dst IP\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"attack_type.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#D683CE\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-application",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP application",
+      "visState": "{\"title\":\"syslog - IDP attack type\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"aplication.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#806EB7\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-threat-name",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP threat name",
+      "visState": "{\"title\":\"syslog - IDP threat name\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"threat_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#E0752D\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-IDP-dst-IP",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - IDP dst IP",
+      "visState": "{\"title\":\"syslog - IDP dst IP\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dst_IP\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#F2C96D\"},\"legendOpen\":false}}",
+      "description": "",
+      "savedSearchId": "syslog-IDP-events",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-events-count",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - events count",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
