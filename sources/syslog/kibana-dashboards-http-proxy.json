@@ -1,0 +1,118 @@
+[
+  {
+    "_id": "syslog-http-proxy-all-events",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - http proxy all events",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "syslog-http-proxy-access-log",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-http-proxy-count",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - http proxy count",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "syslog-http-proxy-access-log",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-http-proxy-unique-urls-count",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - http proxy unique urls count",
+      "visState": "{\"title\":\"syslog - http proxy count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"request\",\"customLabel\":\"Unique URLs\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "syslog-http-proxy-access-log",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-http-proxy-client-IP-address",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - http proxy client IP address",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"clientip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#F4D598\"}}}",
+      "description": "",
+      "savedSearchId": "syslog-http-proxy-access-log",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-http-proxy-second-level-domain",
+    "_type": "visualization",
+    "_source": {
+      "title": "syslog - http proxy second level domain",
+      "visState": "{\"title\":\"syslog - http proxy client IP address\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"second_level_domain\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Count\":\"#EA6460\"}}}",
+      "description": "",
+      "savedSearchId": "syslog-http-proxy-access-log",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-HTTP-Proxy",
+    "_type": "dashboard",
+    "_source": {
+      "title": "syslog - HTTP Proxy",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"id\":\"syslog-http-proxy-all-events\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":8,\"size_y\":4,\"col\":1,\"row\":1},{\"id\":\"syslog-http-proxy-count\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":1},{\"id\":\"syslog-http-proxy-unique-urls-count\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":3},{\"id\":\"syslog-http-proxy-second-level-domain\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":6,\"size_y\":4,\"col\":1,\"row\":5},{\"id\":\"syslog-http-proxy-client-IP-address\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":6,\"size_y\":4,\"col\":7,\"row\":5},{\"id\":\"syslog-http-proxy-access-log\",\"type\":\"search\",\"panelIndex\":6,\"size_x\":12,\"size_y\":20,\"col\":1,\"row\":9,\"columns\":[\"clientip\",\"request\",\"squid_request_status\",\"squid\",\"bytes\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}},\"P-5\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "syslog-http-proxy-access-log",
+    "_type": "search",
+    "_source": {
+      "title": "syslog - http proxy access log",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "clientip",
+        "request",
+        "squid_request_status",
+        "squid",
+        "bytes"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"tags:squid_access_log\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  }
+]

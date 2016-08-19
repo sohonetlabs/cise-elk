@@ -87,6 +87,18 @@
         "dst_ip": {
           "type": "ip"
         },
+        "clientip": {
+          "type": "ip"
+        },
+        "bytes": {
+          "type": "integer"
+        },
+        "in_bytes": {
+          "type": "integer"
+        },
+        "out_bytes": {
+          "type": "integer"
+        },
         "@version": {
           "index": "not_analyzed",
           "doc_values": true,
