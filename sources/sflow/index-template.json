@@ -18,6 +18,9 @@
         },
         "peer_ip_src": {
           "type": "ip"
+        },
+        "bytes": {
+          "type": "long"
         }
       }
     }
