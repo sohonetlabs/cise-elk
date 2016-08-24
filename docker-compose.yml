@@ -40,6 +40,7 @@ services:
     build: ./pmacct
     ports:
       - "23501:23501/udp"
+      - "23502:23502/udp"
     depends_on:
       - rabbitmq
   redis:

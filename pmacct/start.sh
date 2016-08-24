@@ -6,4 +6,4 @@ while ! nc -z rabbitmq 15672; do
 done
 curl -i -u guest:guest -H "content-type:application/json" -XPUT -d'{"type":"fanout","durable":false}' http://rabbitmq:15672/api/exchanges/%2f/pmacct
 
-/opt/pmacct/sbin/sfacctd -f /opt/pmacct/sfacctd.conf
+/usr/bin/supervisord

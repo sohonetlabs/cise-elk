@@ -3,7 +3,8 @@ MAINTAINER Johan van den Dorpe <johan.vandendorpe@sohonet.com>
 
 RUN apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y sudo wget build-essential libjansson-dev libnuma-dev librdkafka-dev libpcap-dev librabbitmq-dev curl
+  && apt-get install -y sudo wget build-essential libjansson-dev libnuma-dev librdkafka-dev libpcap-dev librabbitmq-dev curl supervisor \
+  && mkdir -p /var/log/supervisor
 
 RUN wget http://www.pmacct.net/pmacct-1.5.3.tar.gz \
   && tar xvzf pmacct-1.5.3.tar.gz \
@@ -12,7 +13,9 @@ RUN wget http://www.pmacct.net/pmacct-1.5.3.tar.gz \
   && make -j 4\
   && make install
 
+COPY supervisord.conf /etc/
 COPY sfacctd.conf /opt/pmacct/
+COPY nfacctd.conf /opt/pmacct/
 COPY sflow_agent.conf /opt/pmacct/
 COPY start.sh /
 CMD ["/start.sh"]
