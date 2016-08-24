@@ -91,13 +91,13 @@
           "type": "ip"
         },
         "bytes": {
-          "type": "integer"
+          "type": "long"
         },
         "in_bytes": {
-          "type": "integer"
+          "type": "long"
         },
         "out_bytes": {
-          "type": "integer"
+          "type": "long"
         },
         "@version": {
           "index": "not_analyzed",
