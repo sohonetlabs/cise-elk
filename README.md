@@ -53,9 +53,11 @@ DNS collection is performed by packetbeat, an elasic product. It is a real time 
 
 Packetbeat should be configured to send data to the IP address or hostname of your stack on port 9997.
 
-### Sflow
+### Sflow / Netflow
 
 Devices that support sflow should be configured to send sflow data to the IP address or hostname of your stack on port 23501.
+
+Devices that support netflow should be configured to send sflow data to the IP address or hostname of your stack on port 23502.
 
 ### Table of Listening Ports
 
@@ -63,6 +65,7 @@ Source | Port | Protocol
 -------|------|---------
 Syslog | 9991 | TCP or UDP
 sflow  | 23501 | UDP
+netflow  | 23502 | UDP
 DNS    | 9997 | TCP
 
 
