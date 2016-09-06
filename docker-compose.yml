@@ -47,6 +47,12 @@ services:
     image: redis:3.2
     volumes:
       - redis-data:/data
+  elastalert:
+    build: ./elastalert
+    volumes:
+      - $PWD/sources:/opt/sources
+    depends_on:
+      - elasticsearch
 
 volumes:
   elasticsearch-data:

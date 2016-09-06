@@ -1,0 +1,10 @@
+rules_folder: rules
+run_every:
+  minutes: 15
+buffer_time:
+  minutes: 15
+es_host: 'elasticsearch'
+es_port: 9200
+writeback_index: elastalert_status
+alert_time_limit:
+  days: 2
