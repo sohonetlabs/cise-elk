@@ -17,5 +17,6 @@ COPY supervisord.conf /etc/
 COPY sfacctd.conf /opt/pmacct/
 COPY nfacctd.conf /opt/pmacct/
 COPY sflow_agent.conf /opt/pmacct/
+COPY event.json /
 COPY start.sh /
 CMD ["/start.sh"]
