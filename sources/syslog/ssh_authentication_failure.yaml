@@ -1,0 +1,35 @@
+index: logstash-*
+name: SSH Authentication Failure
+type: any
+
+timeframe:
+  minutes: 15
+
+filter:
+- query_string:
+    query: "event_type:SSH_FAILED_PASSWORD OR event_type:SSH_INVALID_USER"
+
+alert:
+  - "email"
+
+alert_text: |
+    ElastAlert has detected a failed login attempt:
+    Message: {0}
+    Dashboard: {1}
+    Source Host: {2}
+    Timestamp: {3}
+alert_text_args:
+  - "@message"
+  - "kibana_link"
+  - "syslog_hostname"
+  - "@timestamp"
+
+alert_text_type: alert_text_only
+
+# The following values need to be configured for your environment
+es_host: 'elasticsearch'
+es_port: 9200
+use_kibana4_dashboard: "http://localhost/app/kibana#/dashboard/Syslog-SSH-Authentication-Failures"
+email: "administrator@example.com"
+smtp_host: "mail.example.com"
+from_addr: "elastalert@example.com"
