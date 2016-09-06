@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains all the logstash and pmacctd configs, elasticsearch index templates, and kibana dashboards created for the CISE project. It represents an entire configured ELK stack which can be used to record and report on security relevant events for your infrastructure.
+This repository contains all the logstash and pmacctd configs, elasticsearch index templates, kibana dashboards and elastalert alerting rules created for the CISE project. It represents an entire configured ELK stack which can be used to record and report on security relevant events for your infrastructure.
 
 Also included are configurations for docker and docker-compose, to allow an entire running stack to be bought up quickly for testing.
 
@@ -14,7 +14,12 @@ However, the logstash and pmacctd configurations are relevant for all installati
 
 The `sources` directory contains subdirectories for the data sources we collect: `syslog`, `dns` and `sflow`. Each source includes logstash configs named `index.conf`, `filter.conf` and `output.conf` and optionally a `patterns` directory containing logstash grok patterns.
 
-Also included for each source is `index-template.json`, an index template for elasticsearch that contains the type mappings for the source, and `kibana-dashboards.json` with all the kibana searches, visualisations and dashboards for the source.
+Also included for each source is:
+
+  - `index-template.json`, an index template for elasticsearch that contains the type mappings for the source
+  - one or more of `kibana-dashboards.json` or `kibana-dashboards-<type>.json` with all the kibana searches, visualisations and dashboards for the source
+
+Some sources also include elastalert rule configs, named `<source>-<rule_name>.yaml`
 
 The `collectors` directory contains configurations on how to configure collection agents to send data to the CISE-ELK stack.
 
@@ -112,6 +117,23 @@ From the `Edit Saved Objects` screen, click `Import` and select from your local 
 
 ![Kibana Import](./kibana-import.png)
 
+## Elastalert Alerting
+
+Some sources include rules for elastalert alerting. For these to work, you need to define how the alerts will be sent in your environment.
+
+Within each rule, there is a section including the values which need updating
+
+    # The following values need to be configured for your environment
+    es_host: 'elasticsearch'
+    es_port: 9200
+    use_kibana4_dashboard: "http://localhost/app/kibana#/dashboard/Syslog-SSH-Authentication-Failures"
+    email: "administrator@example.com"
+    smtp_host: "mail.example.com"
+    from_addr: "elastalert@example.com"
+
+In the test docker environment, only the `email`, `smtp_host` and `from_addr` need updating.
+
+The values for `es_host`, `es_port` and the hostname within the `use_kibana4_dashboard` URL should be changed to match your environment.
 
 
 ## Generating sample data
