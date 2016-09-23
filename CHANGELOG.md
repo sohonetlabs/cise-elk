@@ -1,5 +1,18 @@
 # Change Log
 
+## [v0.2.1](https://github.com/sohonetlabs/cise-elk/tree/v0.2.1) (2016-09-23)
+[Full Changelog](https://github.com/sohonetlabs/cise-elk/compare/v0.2...v0.2.1)
+
+**Closed issues:**
+
+- Support ISO8601 timestamps in syslog messages [\#9](https://github.com/sohonetlabs/cise-elk/issues/9)
+- fields in sflow and netflow data [\#5](https://github.com/sohonetlabs/cise-elk/issues/5)
+
+**Merged pull requests:**
+
+- Fix issue with processing squid logs in default squid format [\#11](https://github.com/sohonetlabs/cise-elk/pull/11) ([johanek](https://github.com/johanek))
+- Support iso8601 timestamps in syslog messages [\#10](https://github.com/sohonetlabs/cise-elk/pull/10) ([johanek](https://github.com/johanek))
+
 ## [v0.2](https://github.com/sohonetlabs/cise-elk/tree/v0.2) (2016-09-06)
 [Full Changelog](https://github.com/sohonetlabs/cise-elk/compare/v0.1...v0.2)
 
