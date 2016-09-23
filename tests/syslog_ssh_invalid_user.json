@@ -1,0 +1,26 @@
+{
+  "name": "SSH Invalid User",
+  "fields": {
+    "type": "syslog"
+  },
+  "ignore": ["@version", "@timestamp", "received_at", "received_from", "@source_host", "@message", "tags", "syslog_timestamp"],
+  "cases": [{
+    "in": "<38>Sep  6 09:36:57 systemhostname sshd[10031]: Failed password for invalid user admin from 185.93.185.7 port 49574 ssh2",
+    "out": {
+      "type": "syslog",
+      "syslog_message": "Failed password for invalid user admin from 185.93.185.7 port 49574 ssh2",
+      "syslog_pri": "38",
+      "syslog_program": "sshd",
+      "syslog_hostname": "systemhostname",
+      "syslog_severity_code": "6",
+      "syslog_facility_code": "4",
+      "syslog_facility": "security/authorization",
+      "syslog_severity": "informational",
+      "syslog_pid": "10031",
+      "event_type": "SSH_INVALID_USER",
+      "src_ipv4": "185.93.185.7",
+      "src_port": "49574",
+      "username": "admin"
+    }
+  }]
+}
