@@ -1,0 +1,60 @@
+{
+  "name": "Default Syslog message",
+  "fields": {
+    "type": "syslog"
+  },
+  "ignore": ["@version", "received_at", "received_from", "@source_host", "@message"],
+  "cases": [
+    {
+      "in": "<30>May 25 14:52:20 systemhostname dhclient: DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+      "out": {
+        "type": "syslog",
+        "syslog_message": "DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+        "syslog_pri": "30",
+        "syslog_program": "dhclient",
+        "syslog_hostname": "systemhostname",
+        "syslog_severity_code": "6",
+        "syslog_facility_code": "3",
+        "syslog_facility": "daemon",
+        "syslog_severity": "informational",
+        "syslog_timestamp": "May 25 14:52:20",
+        "@timestamp": "2016-05-25T14:52:20.000Z",
+        "tags": [ "linux_syslog" ]
+      }
+    },
+    {
+      "in": "<30>Oct  1 03:22:20 systemhostname dhclient: DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+      "out": {
+        "type": "syslog",
+        "syslog_message": "DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+        "syslog_pri": "30",
+        "syslog_program": "dhclient",
+        "syslog_hostname": "systemhostname",
+        "syslog_severity_code": "6",
+        "syslog_facility_code": "3",
+        "syslog_facility": "daemon",
+        "syslog_severity": "informational",
+        "syslog_timestamp": "Oct  1 03:22:20",
+        "@timestamp": "2016-10-01T03:22:20.000Z",
+        "tags": [ "linux_syslog" ]
+      }
+    },
+    {
+      "in": "<30>2016-09-20T10:01:13.004695+01:00 systemhostname dhclient: DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+      "out": {
+        "type": "syslog",
+        "syslog_message": "DHCPREQUEST of 10.99.146.149 on eth0 to 10.99.146.10 port 67 (xid=0x39dff989)",
+        "syslog_pri": "30",
+        "syslog_program": "dhclient",
+        "syslog_hostname": "systemhostname",
+        "syslog_severity_code": "6",
+        "syslog_facility_code": "3",
+        "syslog_facility": "daemon",
+        "syslog_severity": "informational",
+        "syslog_timestamp": "2016-09-20T10:01:13.004695+01:00",
+        "@timestamp": "2016-09-20T09:01:13.004Z",
+        "tags": [ "linux_syslog" ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Squid Access Logs",
+  "fields": {
+    "type": "syslog"
+  },
+  "ignore": ["@version", "received_at", "received_from", "@source_host", "@message", "host", "syslog_timestamp", "@timestamp"],
+  "cases": [
+    {
+      "in": "<163>2016-09-22T17:09:41.529379+01:00 kraken squid_accesslog: 1474560580.870    280 172.16.47.85 TCP_MISS/200 1105 GET http://comments.us1.gigya.com/comments.getStreamInfo? - DIRECT/23.214.71.128 text/javascript",
+      "out": {
+        "type": "syslog",
+        "clientip": "172.16.47.85",
+        "content_type": "text/javascript",
+        "dst_host": "comments.us1.gigya.com",
+        "dst_ip": "23.214.71.128",
+        "http_method": "GET",
+        "http_protocol": "http",
+        "http_status_code": "200",
+        "reply_size_include_header": "1105",
+        "request_url": "/comments.getStreamInfo?",
+        "response_time": "280",
+        "squid": "DIRECT",
+        "squid_request_status": "TCP_MISS",
+        "syslog_facility": "local4",
+        "syslog_facility_code": "20",
+        "syslog_pri": "163",
+        "syslog_hostname": "kraken",
+        "syslog_program": "squid_accesslog",
+        "syslog_severity": "error",
+        "syslog_severity_code": "3",
+        "timestamp": "1474560580.870",
+        "user": "-",
+        "tags": [ "squid_access_log" ]
+      }
+    }
+  ]
+}
