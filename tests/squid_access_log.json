@@ -11,13 +11,13 @@
         "type": "syslog",
         "clientip": "172.16.47.85",
         "content_type": "text/javascript",
-        "dst_host": "comments.us1.gigya.com",
+        "urihost": "comments.us1.gigya.com",
         "dst_ip": "23.214.71.128",
         "http_method": "GET",
-        "http_protocol": "http",
-        "http_status_code": "200",
+        "uriproto": "http",
+        "response": "200",
         "reply_size_include_header": "1105",
-        "request_url": "/comments.getStreamInfo?",
+        "uripathparm": "/comments.getStreamInfo?",
         "response_time": "280",
         "squid": "DIRECT",
         "squid_request_status": "TCP_MISS",
@@ -29,7 +29,9 @@
         "syslog_severity": "error",
         "syslog_severity_code": "3",
         "timestamp": "1474560580.870",
+        "request": "http://comments.us1.gigya.com/comments.getStreamInfo?",
         "user": "-",
+        "second_level_domain": "gigya.com",
         "tags": [ "squid_access_log" ]
       }
     }
