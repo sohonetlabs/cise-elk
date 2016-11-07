@@ -1,5 +1,5 @@
 {
-  "name": "Default Syslog message",
+  "name": "Sonicwall Firewall Log",
   "fields": {
     "type": "syslog"
   },
