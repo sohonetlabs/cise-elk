@@ -8,7 +8,6 @@
     "in": "<38>Sep  6 09:36:57 systemhostname sshd[10031]: Failed password for invalid user admin from 185.93.185.7 port 49574 ssh2",
     "out": {
       "type": "syslog",
-      "syslog_message": "Failed password for invalid user admin from 185.93.185.7 port 49574 ssh2",
       "syslog_pri": "38",
       "syslog_program": "sshd",
       "syslog_hostname": "systemhostname",
