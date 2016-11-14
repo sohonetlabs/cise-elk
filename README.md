@@ -1,5 +1,7 @@
 # CISE-ELK
 
+[![Build Status](https://travis-ci.org/sohonetlabs/cise-elk.svg?branch=master)](https://travis-ci.org/sohonetlabs/cise-elk)
+
 ## Overview
 
 This repository contains all the logstash and pmacctd configs, elasticsearch index templates, kibana dashboards and elastalert alerting rules created for the CISE project. It represents an entire configured ELK stack which can be used to record and report on security relevant events for your infrastructure.
