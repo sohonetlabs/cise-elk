@@ -1,61 +1,45 @@
 [
   {
-    "_id": "Sonicwall-Blocked-Website",
-    "_type": "visualization",
+    "_id": "Sonicwall",
+    "_type": "dashboard",
     "_source": {
-      "title": "Sonicwall - Blocked Website",
-      "visState": "{\"title\":\"Sonicwall - Blocked Website\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dstname\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Site\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
+      "title": "Sonicwall",
+      "hits": 0,
       "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Sonicwall-Blocked-Website\",\"panelIndex\":3,\"row\":3,\"size_x\":7,\"size_y\":4,\"type\":\"visualization\"},{\"col\":4,\"columns\":[\"src\",\"msg\"],\"id\":\"Sonicwall-Admin-Login-Failed-list\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":2,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Sonicwall-Failed-Login\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":6,\"id\":\"Sonicwall-Port-Scan\",\"panelIndex\":7,\"row\":7,\"size_x\":7,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Sonicwall-Website-Access-Denied\",\"type\":\"search\",\"panelIndex\":8,\"size_x\":5,\"size_y\":6,\"col\":8,\"row\":1,\"columns\":[\"dstname\",\"src_ip\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"Sonicwall-Port-Scan-(Map)\",\"type\":\"visualization\",\"panelIndex\":9,\"size_x\":5,\"size_y\":4,\"col\":1,\"row\":7},{\"id\":\"Sonicwall-IP-Spoofs\",\"type\":\"visualization\",\"panelIndex\":10,\"size_x\":5,\"size_y\":4,\"col\":1,\"row\":11},{\"id\":\"Sonicwall-IPS-All-Attacks\",\"type\":\"search\",\"panelIndex\":11,\"size_x\":7,\"size_y\":4,\"col\":6,\"row\":11,\"columns\":[\"ipspri\",\"ipscat\",\"src_ip\",\"dst_ip\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"legendOpen\":false}},\"P-10\":{\"vis\":{\"legendOpen\":false}}}",
       "version": 1,
+      "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Web site access denied\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
       }
     }
   },
   {
-    "_id": "Sonicwall-Failed-Login",
-    "_type": "visualization",
+    "_id": "Sonicwall-IPS-All-Attacks",
+    "_type": "search",
     "_source": {
-      "title": "Sonicwall - Failed Login",
-      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
+      "title": "Sonicwall -  IPS All Attacks",
       "description": "",
+      "hits": 0,
+      "columns": [
+        "ipspri",
+        "ipscat",
+        "src_ip",
+        "dst_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
       "version": 1,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Administrator login denied due to bad credentials\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"ipspri: *\",\"analyze_wildcard\":true}}}"
       }
     }
   },
   {
-    "_id": "Sonicwall-Message-types",
-    "_type": "visualization",
-    "_source": {
-      "title": "Sonicwall - Message types",
-      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"msg\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"id=Firewall\"}},\"filter\":[]}"
-      }
-    }
-  },
-  {
-    "_id": "Sonicwall-Web-Site-Access-Denied",
-    "_type": "visualization",
-    "_source": {
-      "title": "Sonicwall - Web Site Access Denied",
-      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
-      "uiStateJSON": "{}",
-      "description": "",
-      "version": 1,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Web site access denied\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
-      }
-    }
-  },
- {
     "_id": "Sonicwall-IPS-Detection-Alert",
     "_type": "search",
     "_source": {
@@ -74,6 +58,75 @@
       "version": 1,
       "kibanaSavedObjectMeta": {
         "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"msg:\\\"IPS Detection Alert\\\"\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-IPS-High-Priority-Attacks",
+    "_type": "search",
+    "_source": {
+      "title": "Sonicwall -  IPS High Priority Attacks",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "ipspri",
+        "ipscat",
+        "src_ip",
+        "dst_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"ipspri: 1\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-IPS-Low-Priority-Attacks",
+    "_type": "search",
+    "_source": {
+      "title": "Sonicwall -  IPS Low Priority Attacks",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "ipspri",
+        "ipscat",
+        "src_ip",
+        "dst_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"ipspri: 3\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-IPS-Medium-Priority-Attacks",
+    "_type": "search",
+    "_source": {
+      "title": "Sonicwall -  IPS Medium Priority Attacks",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "ipspri",
+        "ipscat",
+        "src_ip",
+        "dst_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"ipspri: 2\",\"analyze_wildcard\":true}}}"
       }
     }
   },
@@ -99,6 +152,55 @@
     }
   },
   {
+    "_id": "Sonicwall-IP-Spoof",
+    "_type": "search",
+    "_source": {
+      "title": "Sonicwall - IP Spoof",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "src_ip",
+        "src_interface",
+        "dst_ip",
+        "dst_interface"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"msg:\\\"IP spoof dropped\\\"\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-Port-Scan",
+    "_type": "search",
+    "_source": {
+      "title": "Sonicwall - Port Scan",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "msg",
+        "src_ip",
+        "src_port",
+        "src_interface",
+        "dst_ip",
+        "dst_port",
+        "dst_interface"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"id: firewall AND msg: \\\"Probable port scan detected\\\"\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
     "_id": "Sonicwall-Website-Access-Denied",
     "_type": "search",
     "_source": {
@@ -106,7 +208,9 @@
       "description": "",
       "hits": 0,
       "columns": [
-        "dstname"
+        "dstname",
+        "src_ip",
+        "Category"
       ],
       "sort": [
         "@timestamp",
@@ -119,20 +223,104 @@
     }
   },
   {
-    "_id": "Sonicwall",
-    "_type": "dashboard",
+    "_id": "Sonicwall-Blocked-Website",
+    "_type": "visualization",
     "_source": {
-      "title": "Sonicwall",
-      "hits": 0,
+      "title": "Sonicwall - Blocked Website",
+      "visState": "{\"title\":\"Sonicwall - Blocked Website\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dstname\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Site\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
       "description": "",
-      "panelsJSON": "[{\"col\":1,\"id\":\"Sonicwall-Blocked-Website\",\"panelIndex\":3,\"row\":3,\"size_x\":7,\"size_y\":4,\"type\":\"visualization\"},{\"col\":4,\"columns\":[\"src\",\"msg\"],\"id\":\"Sonicwall-Admin-Login-Failed-list\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":2,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Sonicwall-Failed-Login\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":8,\"id\":\"Sonicwall-Website-Access-Denied\",\"panelIndex\":6,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"search\",\"columns\":[\"dstname\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}}}",
       "version": 1,
-      "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Web site access denied\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
       }
     }
-  }  
+  },
+  {
+    "_id": "Sonicwall-Failed-Login",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - Failed Login",
+      "visState": "{\"title\":\"Sonicwall - Failed Login\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Administrator login denied due to bad credentials\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-Message-types",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - Message types",
+      "visState": "{\"title\":\"Sonicwall - Message types\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"msg\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"id=Firewall\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-IP-Spoofs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - IP Spoof",
+      "visState": "{\n  \"title\": \"New Visualization\",\n  \"type\": \"histogram\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"scale\": \"linear\",\n    \"mode\": \"stacked\",\n    \"times\": [],\n    \"addTimeMarker\": false,\n    \"defaultYExtents\": false,\n    \"setYExtents\": false,\n    \"yAxis\": {}\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"src_ip\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Sonicwall-IP-Spoof",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-Port-Scan",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - Port Scan",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"src_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Sonicwall-Port-Scan",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-Port-Scan-(Map)",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - Port Scan (Map)",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"addTooltip\":true,\"heatMaxZoom\":16,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"wms\":{\"enabled\":false,\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\"options\":{\"version\":\"1.3.0\",\"layers\":\"0\",\"format\":\"image/png\",\"transparent\":true,\"attribution\":\"Maps provided by USGS\",\"styles\":\"\"}}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"precision\":2}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Sonicwall-Port-Scan",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sonicwall-Web-Site-Access-Denied",
+    "_type": "visualization",
+    "_source": {
+      "title": "Sonicwall - Web Site Access Denied",
+      "visState": "{\"title\":\"Sonicwall - Web Site Access Denied\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"msg:\\\"Web site access denied\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
 ]
