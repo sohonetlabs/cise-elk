@@ -27,10 +27,9 @@ alert_text_args:
 alert_text_type: alert_text_only
 
 # The following values need to be configured for your environment
-es_host: 'logstash.ldn.framestore.com'
+es_host: 'elasticsearch'
 es_port: 9200
-use_kibana4_dashboard: "http://logstash:5601/app/kibana#/dashboard/Sonicwall"
-email: "elastalert@framestore.com"
-smtp_host: "mail.ldn.framestore.com"
-from_addr: "cise-elastalert@framestore.com"
-#
+use_kibana4_dashboard: "http://localhost/app/kibana#/dashboard/Sonicwall"
+email: "administrator@example.com"
+smtp_host: "mail.example.com"
+from_addr: "elastalert@example.com"
