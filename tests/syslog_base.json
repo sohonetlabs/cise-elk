@@ -18,7 +18,7 @@
         "syslog_facility": "daemon",
         "syslog_severity": "informational",
         "syslog_timestamp": "May 25 14:52:20",
-        "@timestamp": "2016-05-25T14:52:20.000Z",
+        "@timestamp": "2017-05-25T14:52:20.000Z",
         "tags": [ "linux_syslog" ]
       }
     },
@@ -35,7 +35,7 @@
         "syslog_facility": "daemon",
         "syslog_severity": "informational",
         "syslog_timestamp": "Oct  1 03:22:20",
-        "@timestamp": "2016-10-01T03:22:20.000Z",
+        "@timestamp": "2017-10-01T03:22:20.000Z",
         "tags": [ "linux_syslog" ]
       }
     },
