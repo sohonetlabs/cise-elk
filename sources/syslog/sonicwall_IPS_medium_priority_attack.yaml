@@ -1,0 +1,36 @@
+index: logstash-*
+name: SONICWALL_IPS_MEDIUM_PRIORITY_ATTACK
+type: any
+
+timeframe:
+  minutes: 1
+
+filter:
+- query_string:
+    query: "ipspri: 2"
+
+alert:
+  - "email"
+
+alert_text: |
+    ElastAlert has detected a medium priority IPS attack:
+    Message: {0}
+    Dashboard: {1}
+    Source Host: {2}
+    Timestamp: {3}
+alert_text_args:
+  - "@message"
+  - "kibana_link"
+  - "syslog_hostname"
+  - "@timestamp"
+
+alert_text_type: alert_text_only
+
+# The following values need to be configured for your environment
+es_host: 'elasticsearch'
+es_port: 9200
+use_kibana4_dashboard: "http://localhost/app/kibana#/dashboard/Sonicwall"
+email: "administrator@example.com"
+smtp_host: "mail.example.com"
+from_addr: "elastalert@example.com"
+
