@@ -1,0 +1,152 @@
+[
+  {
+    "_id": "Openvpn",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Syslog - Openvpn",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[\n  {\n    \"col\": 1,\n    \"id\": \"OpenVPN-Top-10-Users\",\n    \"panelIndex\": 1,\n    \"row\": 6,\n    \"size_x\": 6,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 7,\n    \"id\": \"OpenVPN-Top-10-Failed-Logins\",\n    \"panelIndex\": 3,\n    \"row\": 6,\n    \"size_x\": 6,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 9,\n    \"id\": \"OpenVPN-Top-10-Failed-Source-IPs\",\n    \"panelIndex\": 4,\n    \"row\": 1,\n    \"size_x\": 4,\n    \"size_y\": 5,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 1,\n    \"id\": \"OpenVPN-Event-Map\",\n    \"panelIndex\": 5,\n    \"row\": 1,\n    \"size_x\": 8,\n    \"size_y\": 5,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 1,\n    \"columns\": [\n      \"host\",\n      \"event_type\",\n      \"user\",\n      \"src_ip\",\n      \"vpn_ip\",\n      \"geoip.city_name\",\n      \"geoip.country_name\"\n    ],\n    \"id\": \"OpenVPN-Event\",\n    \"panelIndex\": 6,\n    \"row\": 9,\n    \"size_x\": 12,\n    \"size_y\": 6,\n    \"sort\": [\n      \"@timestamp\",\n      \"desc\"\n    ],\n    \"type\": \"search\"\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-1\": {\n    \"spy\": {\n      \"mode\": {\n        \"fill\": false,\n        \"name\": null\n      }\n    },\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-3\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-4\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-Event",
+    "_type": "search",
+    "_source": {
+      "title": "OpenVPN - Event",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "event_type",
+        "user",
+        "src_ip",
+        "vpn_ip",
+        "geoip.city_name",
+        "geoip.country_name"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"tags:openvpn_syslog AND event_type:*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-auth_failed",
+    "_type": "search",
+    "_source": {
+      "title": "OpenVPN-auth_failed",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "event_type",
+        "src_ip",
+        "user"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"tags:openvpn_syslog AND event_type:OPENVPN_AUTH_FAILED\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-auth_success",
+    "_type": "search",
+    "_source": {
+      "title": "OpenVPN-auth_success",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "event_type",
+        "user",
+        "src_ip",
+        "vpn_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"tags:openvpn_syslog AND event_type:OPENVPN_AUTH_SUCCESS\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-Event-Map",
+    "_type": "visualization",
+    "_source": {
+      "title": "OpenVPN - Event Map",
+      "visState": "{\"title\":\"OpenVPN - Event Map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"addTooltip\":true,\"heatMaxZoom\":16,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"wms\":{\"enabled\":false,\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\"options\":{\"version\":\"1.3.0\",\"layers\":\"0\",\"format\":\"image/png\",\"transparent\":true,\"attribution\":\"Maps provided by USGS\",\"styles\":\"\"}}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Users\"}},{\"id\":\"2\",\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"precision\":2}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "OpenVPN-Event",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-Top-10-Failed-Logins",
+    "_type": "visualization",
+    "_source": {
+      "title": "OpenVPN - Top 10 Failed Logins",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "OpenVPN-auth_failed",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-Top-10-Failed-Source-IPs",
+    "_type": "visualization",
+    "_source": {
+      "title": "OpenVPN - Top 10 Failed Source IPs",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"src_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "OpenVPN-auth_failed",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "OpenVPN-Top-10-Users",
+    "_type": "visualization",
+    "_source": {
+      "title": "OpenVPN - Top 10 Users",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "OpenVPN-auth_success",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  }
+]
