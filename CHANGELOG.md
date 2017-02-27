@@ -1,5 +1,24 @@
 # Change Log
 
+## [v1.0.0](https://github.com/sohonetlabs/cise-elk/tree/v1.0.0) (2017-02-27)
+[Full Changelog](https://github.com/sohonetlabs/cise-elk/compare/v0.2.1...v1.0.0)
+
+**Closed issues:**
+
+- Initial Update [\#16](https://github.com/sohonetlabs/cise-elk/issues/16)
+- DNS second level domain in HTTP Proxy logs not working [\#13](https://github.com/sohonetlabs/cise-elk/issues/13)
+- Dashboards for HTTP Proxy don't support squid default log format [\#12](https://github.com/sohonetlabs/cise-elk/issues/12)
+
+**Merged pull requests:**
+
+- Add documentation on reputation scoring [\#22](https://github.com/sohonetlabs/cise-elk/pull/22) ([johanek](https://github.com/johanek))
+- Pr 20 [\#21](https://github.com/sohonetlabs/cise-elk/pull/21) ([johanek](https://github.com/johanek))
+- OpenVPN [\#20](https://github.com/sohonetlabs/cise-elk/pull/20) ([djeantou](https://github.com/djeantou))
+- Updated Sonicwall filters and Dashboards [\#18](https://github.com/sohonetlabs/cise-elk/pull/18) ([djeantou](https://github.com/djeantou))
+- Fix failing tests [\#17](https://github.com/sohonetlabs/cise-elk/pull/17) ([johanek](https://github.com/johanek))
+- Squid fix [\#15](https://github.com/sohonetlabs/cise-elk/pull/15) ([johanek](https://github.com/johanek))
+- Squid and Sonicwall Filter [\#14](https://github.com/sohonetlabs/cise-elk/pull/14) ([djeantou](https://github.com/djeantou))
+
 ## [v0.2.1](https://github.com/sohonetlabs/cise-elk/tree/v0.2.1) (2016-09-23)
 [Full Changelog](https://github.com/sohonetlabs/cise-elk/compare/v0.2...v0.2.1)
 
