@@ -1,73 +1,73 @@
 {
   "name": "Sonicwall Firewall Log",
-  "fields": {
-    "type": "syslog"
-  },
-  "ignore": ["@version", "received_at", "received_from", "@source_host", "@message", "syslog_hostname", "host", "type", "@timestamp", "geoip"],
-  "cases": [
-    {
-      "in": "<134>id=firewall sn=C02DW4AZDE40 time=\"2016-10-18 12:16:44\" fw=91.32.20.62 pri=6 c=262144 m=98 msg=\"Connection Opened\" app=2 n=6873368631 src=132.88.132.36:42625:X20-V9990 dst=122.16.19.20:53:X99-V2237 proto=udp/dns sent=85",
-      "out": {
-		"app": "2",
-		"c": "262144",
-		"dst": "122.16.19.20:53:X99-V2237",
-		"dst_interface": "X99-V2237",
-		"dst_ip": "122.16.19.20",
-		"dst_port": "53",
-		"fw": "91.32.20.62",
-		"id": "firewall",
-		"log": "fw=91.32.20.62 pri=6 c=262144 m=98 msg=\"Connection Opened\" app=2 n=6873368631 src=132.88.132.36:42625:X20-V9990 dst=122.16.19.20:53:X99-V2237 proto=udp/dns sent=85",
-		"m": "98",
-		"msg": "Connection Opened",
-		"n": "6873368631",
-		"pri": "6",
-		"proto": "udp/dns",
-		"sent": "85",
-		"sn": "C02DW4AZDE40",
-		"src": "132.88.132.36:42625:X20-V9990",
-		"src_interface": "X20-V9990",
-		"src_ip": "132.88.132.36",
-		"src_port": "42625",
-		"syslog_facility": "local0",
-       		"syslog_facility_code": "16",
-        	"syslog_pri": "134",
-        	"syslog_severity": "informational",
-        	"syslog_severity_code": "6",
-        	"tags": [ "sonicwall_syslog" ],
-		"time": "2016-10-18 12:16:44"
-      }
+    "fields": {
+      "type": "syslog"
     },
-    {
-      "in": "<129>id=firewall sn=C02DW4AZDE40 time=\"2016-10-18 11:43:20\" fw=14.31.23.65 pri=1 c=32 m=608 msg=\"IPS Detection Alert: ICMP PING\" sid=293 ipscat=\"ICMP PING\" ipspri=3  n=34217 src=112.81.182.34:42625:X21-V9290 dst=208.78.169.235:13323:X71-V140",
-      "out": {
-		"c": "32",
-		"dst": "208.78.169.235:13323:X71-V140",
-		"dst_interface": "X71-V140",
-		"dst_ip": "208.78.169.235",
-		"dst_port": "13323",
-		"fw": "14.31.23.65",
-		"id": "firewall",
-		"ipscat": "ICMP PING",
-		"ipspri": "3",
-		"log": "fw=14.31.23.65 pri=1 c=32 m=608 msg=\"IPS Detection Alert: ICMP PING\" sid=293 ipscat=\"ICMP PING\" ipspri=3  n=34217 src=112.81.182.34:42625:X21-V9290 dst=208.78.169.235:13323:X71-V140",
-		"m": "608",
-		"msg": "IPS Detection Alert: ICMP PING",
-		"n": "34217",
-		"pri": "1",
-		"sid": "293", 
-		"sn": "C02DW4AZDE40",
-		"src": "112.81.182.34:42625:X21-V9290",
-		"src_interface": "X21-V9290",
-		"src_ip": "112.81.182.34",
-		"src_port": "42625",
-		"syslog_facility": "local0",
-        	"syslog_facility_code": "16",
-        	"syslog_pri": "129",
-        	"syslog_severity": "alert",
-        	"syslog_severity_code": "1",
-        	"tags": [ "sonicwall_syslog" ],
-		"time": "2016-10-18 11:43:20"
+    "ignore": ["@version", "received_at", "received_from", "@source_host", "@message", "syslog_hostname", "host", "type", "@timestamp", "geoip"],
+    "cases": [
+      {
+        "in": "<134>id=firewall sn=C02DW4AZDE40 time=\"2016-10-18 12:16:44\" fw=91.32.20.62 pri=6 c=262144 m=98 msg=\"Connection Opened\" app=2 n=6873368631 src=132.88.132.36:42625:X20-V9990 dst=122.16.19.20:53:X99-V2237 proto=udp/dns sent=85",
+        "out": {
+          "app": "2",
+          "c": "262144",
+          "dst": "122.16.19.20:53:X99-V2237",
+          "dst_interface": "X99-V2237",
+          "dst_ip": "122.16.19.20",
+          "dst_port": "53",
+          "fw": "91.32.20.62",
+          "id": "firewall",
+          "log": "fw=91.32.20.62 pri=6 c=262144 m=98 msg=\"Connection Opened\" app=2 n=6873368631 src=132.88.132.36:42625:X20-V9990 dst=122.16.19.20:53:X99-V2237 proto=udp/dns sent=85",
+          "m": "98",
+          "msg": "Connection Opened",
+          "n": "6873368631",
+          "pri": "6",
+          "proto": "udp/dns",
+          "sent": "85",
+          "sn": "C02DW4AZDE40",
+          "src": "132.88.132.36:42625:X20-V9990",
+          "src_interface": "X20-V9990",
+          "src_ip": "132.88.132.36",
+          "src_port": "42625",
+          "syslog_facility": "local0",
+          "syslog_facility_code": "16",
+          "syslog_pri": "134",
+          "syslog_severity": "informational",
+          "syslog_severity_code": "6",
+          "tags": [ "sonicwall_syslog" ],
+          "time": "2016-10-18 12:16:44"
+        }
+      },
+      {
+        "in": "<129>id=firewall sn=C02DW4AZDE40 time=\"2016-10-18 11:43:20\" fw=14.31.23.65 pri=1 c=32 m=608 msg=\"IPS Detection Alert: ICMP PING\" sid=293 ipscat=\"ICMP PING\" ipspri=3  n=34217 src=112.81.182.34:42625:X21-V9290 dst=208.78.169.235:13323:X71-V140",
+        "out": {
+          "c": "32",
+          "dst": "208.78.169.235:13323:X71-V140",
+          "dst_interface": "X71-V140",
+          "dst_ip": "208.78.169.235",
+          "dst_port": "13323",
+          "fw": "14.31.23.65",
+          "id": "firewall",
+          "ipscat": "ICMP PING",
+          "ipspri": "3",
+          "log": "fw=14.31.23.65 pri=1 c=32 m=608 msg=\"IPS Detection Alert: ICMP PING\" sid=293 ipscat=\"ICMP PING\" ipspri=3  n=34217 src=112.81.182.34:42625:X21-V9290 dst=208.78.169.235:13323:X71-V140",
+          "m": "608",
+          "msg": "IPS Detection Alert: ICMP PING",
+          "n": "34217",
+          "pri": "1",
+          "sid": "293", 
+          "sn": "C02DW4AZDE40",
+          "src": "112.81.182.34:42625:X21-V9290",
+          "src_interface": "X21-V9290",
+          "src_ip": "112.81.182.34",
+          "src_port": "42625",
+          "syslog_facility": "local0",
+          "syslog_facility_code": "16",
+          "syslog_pri": "129",
+          "syslog_severity": "alert",
+          "syslog_severity_code": "1",
+          "tags": [ "sonicwall_syslog" ],
+          "time": "2016-10-18 11:43:20"
+        }
       }
-    }
-  ]
+    ]
 }
