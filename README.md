@@ -75,6 +75,14 @@ sflow  | 23501 | UDP
 netflow  | 23502 | UDP
 DNS    | 9997 | TCP
 
+## Add reputation scoring to sflow and netflow records
+
+The logstash processing pipeline is configured to augment sflow and netflow traffic records with details from threat intelligence databases, if the IP addresses match. It also add a reputation score to the traffic.
+
+For this to work, you will need to import the threat intelligence databases into elasticsearch regularly using [generate-ipdatabase](https://github.com/sohonetlabs/generate-ipdatabase).
+
+This process is not automated as part of the docker compose stack.
+
 
 ## Management Interfaces
 
