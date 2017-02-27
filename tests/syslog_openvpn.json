@@ -12,7 +12,7 @@
           "openvpn_log": "Wed Dec  7 14:26:04 2016 homer/10.0.2.91:56964 MULTI: primary virtual IP for homer/10.0.2.91:56964: 192.168.1.1",
           "src_ip": "10.0.2.91",
           "src_port": "56964",
-          "tags": [ "openvpn_syslog", "linux_syslog"],
+          "tags": [ "openvpn_syslog" ],
           "user": "homer",
           "vpn_ip": "192.168.1.1"
         }
@@ -25,7 +25,7 @@
           "src_ip": "10.0.2.91",
           "src_port": "56843",
           "status": "1",
-          "tags": [ "openvpn_syslog", "linux_syslog"],
+          "tags": [ "openvpn_syslog" ],
           "user": "homer"
         }
       },
@@ -33,7 +33,7 @@
         "in": "<190>2016-12-07T15:03:45.834497+00:00 vpn1 openvpn Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
         "out": {
           "openvpn_log": "Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
-          "tags": [ "openvpn_syslog", "linux_syslog"]
+          "tags": [ "openvpn_syslog" ]
         }
       }
     ]
