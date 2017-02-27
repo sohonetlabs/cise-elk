@@ -1,0 +1,2 @@
+OPENVPN_FAILED %{DAY} %{MONTH} +%{MONTHDAY} %{TIME} %{YEAR} %{IP:src_ip}:%{NUMBER:src_port} SENT CONTROL \[%{USERNAME:user}\]: 'AUTH_FAILED' \(status=%{NUMBER:status}\)
+OPENVPN_SUCCESS %{DAY} %{MONTH} +%{MONTHDAY} %{TIME} %{YEAR} %{USERNAME:user}/%{IP:src_ip}:%{NUMBER:src_port} MULTI: primary virtual IP for %{USERNAME}/%{IP}:%{NUMBER}: %{IP:vpn_ip}
