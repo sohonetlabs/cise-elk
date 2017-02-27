@@ -1,40 +1,40 @@
 {
   "name": "OpenVPN",
-  "fields": {
-    "type": "syslog"
-  },
-  "ignore": ["@version", "received_at", "received_from", "@source_host", "@message", "syslog_hostname", "host", "type", "@timestamp",  "syslog_pri", "syslog_timestamp", "syslog_program", "syslog_message", "syslog_severity_code", "syslog_facility_code", "syslog_facility", "syslog_severity"],
-  "cases": [
-    {
-      "in": "<190>2016-12-07T14:26:08.562976+00:00 vpn1 openvpn Wed Dec  7 14:26:04 2016 homer/10.0.2.91:56964 MULTI: primary virtual IP for homer/10.0.2.91:56964: 192.168.1.1",
-      "out": {
-		"event_type": "OPENVPN_AUTH_SUCCESS",
-		"openvpn_log": "Wed Dec  7 14:26:04 2016 homer/10.0.2.91:56964 MULTI: primary virtual IP for homer/10.0.2.91:56964: 192.168.1.1",
-		"src_ip": "10.0.2.91",
-		"src_port": "56964",
-        	"tags": [ "openvpn_syslog", "linux_syslog"],
-		"user": "homer",
-		"vpn_ip": "192.168.1.1"
-      }
+    "fields": {
+      "type": "syslog"
     },
-    {
-      "in": "<190>2016-12-07T09:55:37.986782+00:00 vpn1 openvpn Wed Dec  7 09:55:30 2016 10.0.2.91:56843 SENT CONTROL [homer]: 'AUTH_FAILED' (status=1)",
-      "out": {
-                "event_type": "OPENVPN_AUTH_FAILED",
-                "openvpn_log": "Wed Dec  7 09:55:30 2016 10.0.2.91:56843 SENT CONTROL [homer]: 'AUTH_FAILED' (status=1)",
-                "src_ip": "10.0.2.91",
-                "src_port": "56843",
-		"status": "1",
-                "tags": [ "openvpn_syslog", "linux_syslog"],
-                "user": "homer"
+    "ignore": ["@version", "received_at", "received_from", "@source_host", "@message", "syslog_hostname", "host", "type", "@timestamp",  "syslog_pri", "syslog_timestamp", "syslog_program", "syslog_message", "syslog_severity_code", "syslog_facility_code", "syslog_facility", "syslog_severity"],
+    "cases": [
+      {
+        "in": "<190>2016-12-07T14:26:08.562976+00:00 vpn1 openvpn Wed Dec  7 14:26:04 2016 homer/10.0.2.91:56964 MULTI: primary virtual IP for homer/10.0.2.91:56964: 192.168.1.1",
+        "out": {
+          "event_type": "OPENVPN_AUTH_SUCCESS",
+          "openvpn_log": "Wed Dec  7 14:26:04 2016 homer/10.0.2.91:56964 MULTI: primary virtual IP for homer/10.0.2.91:56964: 192.168.1.1",
+          "src_ip": "10.0.2.91",
+          "src_port": "56964",
+          "tags": [ "openvpn_syslog" ],
+          "user": "homer",
+          "vpn_ip": "192.168.1.1"
+        }
+      },
+      {
+        "in": "<190>2016-12-07T09:55:37.986782+00:00 vpn1 openvpn Wed Dec  7 09:55:30 2016 10.0.2.91:56843 SENT CONTROL [homer]: 'AUTH_FAILED' (status=1)",
+        "out": {
+          "event_type": "OPENVPN_AUTH_FAILED",
+          "openvpn_log": "Wed Dec  7 09:55:30 2016 10.0.2.91:56843 SENT CONTROL [homer]: 'AUTH_FAILED' (status=1)",
+          "src_ip": "10.0.2.91",
+          "src_port": "56843",
+          "status": "1",
+          "tags": [ "openvpn_syslog" ],
+          "user": "homer"
+        }
+      },
+      {
+        "in": "<190>2016-12-07T15:03:45.834497+00:00 vpn1 openvpn Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
+        "out": {
+          "openvpn_log": "Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
+          "tags": [ "openvpn_syslog" ]
+        }
       }
-    },
-    {
-      "in": "<190>2016-12-07T15:03:45.834497+00:00 vpn1 openvpn Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
-      "out": {
-                "openvpn_log": "Wed Dec  7 15:03:40 2016 10.0.2.91:62035 TLS: Initial packet from [AF_INET]10.0.2.91:62035, sid=08461450 7d60d0d0",
-      		"tags": [ "openvpn_syslog", "linux_syslog"]
-	}
-    }
-  ]
+    ]
 }
